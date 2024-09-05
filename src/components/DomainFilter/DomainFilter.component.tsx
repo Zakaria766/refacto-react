@@ -27,8 +27,8 @@ const DomainFilter = (props: Props) => {
 
   useEffect(() => {
     for(let i = 0; i < domains.length; i++) {
-      if (countries.indexOf(domains[i].substring(0,2)) < 0) {
-        countries.push(domains[i].substring(0,2))
+      if (!countries.includes(domains[i].substring(0,2))) {
+        countries.push(domains[i].substring(0,2));
       }
       if (!classifications.includes(domains[i].substring(3,5))) {
         classifications.push(domains[i].substring(3,5));
