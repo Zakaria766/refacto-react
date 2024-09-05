@@ -33,14 +33,7 @@ const DomainFilter = (props: Props) => {
       if (!classifications.includes(domains[i].substring(3,5))) {
         classifications.push(domains[i].substring(3,5));
       }
-      let flag = false;
-      for(let j = 0; j < subClassifications.length; j++) {
-        if (subClassifications[j] == domains[i].substring(6)) {
-          flag = true
-          break;
-        }
-      }
-      if (!flag) {
+      if (!subClassifications.includes(domains[i].substring(6))) {
         subClassifications.push(domains[i].substring(6));
       }
     };
