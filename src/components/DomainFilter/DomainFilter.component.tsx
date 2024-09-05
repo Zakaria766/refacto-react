@@ -30,7 +30,9 @@ const DomainFilter = (props: Props) => {
       if (countries.indexOf(domains[i].substring(0,2)) < 0) {
         countries.push(domains[i].substring(0,2))
       }
-      classifications.push(domains[i].substring(3,5));
+      if (!classifications.includes(domains[i].substring(3,5))) {
+        classifications.push(domains[i].substring(3,5));
+      }
       let flag = false;
       for(let j = 0; j < subClassifications.length; j++) {
         if (subClassifications[j] == domains[i].substring(6)) {
@@ -44,7 +46,7 @@ const DomainFilter = (props: Props) => {
     };
     setState({
       countries: countries,
-      classifications: classifications.filter((e, i, l) => l.indexOf(e) === i),
+      classifications: classifications,
       subClassifications: subClassifications
     });
   }, [domains]);
